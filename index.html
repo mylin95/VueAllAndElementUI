@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJs全家桶+ElementUI</title>
+</head>
+<body>
+    <div id="app">
+        <h3>1.迭代数组</h3>
+        <ul>
+            <!-- e 代表的是emps数组的别名，index-->
+            <li v-for="(e, index) in emps">
+                编码：{{index + 1}}, 姓名：{{e.name}}, 工资：{{e.age}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data () {
+                return {
+                    emps: [
+                        {name: '胡歌', age: 28},
+                        {name: '杨洋', age: 18},
+                        {name: '江疏影', age: 18},
+                        {name: '赖雨濛', age: 18}
+                    ],
+                    interfaces: [
+                        {
+                            "failureRate": "12.0",
+                            "collectTime": "2019-12-15 16:13:23",
+                            "systemName": "销账系统",
+                            "interfaceName": "账单钻取信息_新"
+                        },
+                        {
+                            "failureRate": "1.0",
+                            "collectTime": "2019-12-15 16:13:23",
+                            "systemName": "销账系统",
+                            "interfaceName": "C网代收清单查询"
+                        },
+                        {
+                            "failureRate": "30.0",
+                            "collectTime": "2019-12-15 16:13:23",
+                            "systemName": "销账系统",
+                            "interfaceName": "停复机历史信息查询接口JSON"
+                        },
+                        {
+                            "failureRate": "28.0",
+                            "collectTime": "2019-12-15 16:13:23",
+                            "systemName": "销账系统",
+                            "interfaceName": "充值记录查询JSON"
+                        },
+                        {
+                            "failureRate": "29.0",
+                            "collectTime": "2019-12-15 16:13:23",
+                            "interfaceName": "用户欠费状态查询JSON",
+                            "systemName": "销账系统"
+                        }
+                    ]
+                }
+            },
+            created() {
+                var elements = [3, 1, 5, 7, 2, 4, 9, 6, 10, 8]
+                console.log('before: ' + elements)
+                elements = this.sortPop(elements)
+                console.log('after: ' + elements)
+
+                var a = this.sortPop2(this.interfaces)
+                console.log("a---", a)
+
+                var b = _.orderBy(this.interfaces, ['failureRate'], ['desc'])
+                console.log("b: ", b)
+            },
+            methods: {
+                sortPop(elements) {
+                    for(var i=0; i<elements.length -1; i++) {
+                        for(var j=0; j<elements.length -i-1; j++) {
+                            if(elements[j] > elements[j + 1]) {
+                                var swap = elements[j]
+                                elements[j] = elements[j + 1]
+                                elements[j + 1] = swap
+                            }
+                        }
+                    }
+                    return elements
+                },
+                sortPop2(interfaces) {
+                    var arr = []
+                    for(var i=0; i<interfaces.length -1; i++) {
+                        for(var j=0; j<interfaces.length -i-1; j++) {
+                            if(interfaces[j].failureRate < interfaces[j + 1].failureRate) {
+                                console.log("j:", interfaces[j].failureRate)
+                                console.log("j+1", interfaces[j+1].failureRate)
+                                console.log("---", interfaces.splice[j+1])
+                                // interfaces.splice(interfaces.splice[j+1])
+                            }
+                        }
+                    }
+                    return interfaces
+                }
+            },
+        })
+    </script>
+</body>
+</html>
