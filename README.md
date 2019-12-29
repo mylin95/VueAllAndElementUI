@@ -24,5 +24,26 @@
     8.自定义指令
         a.全局指令
         b.局部指令
+    
+    2019年12月28日13:56:24
+    9.todomvc实战
+        a.www.todomvc.com获取Vue的模板
+        b.前端使用指南：先画页面，然后使用js数据动态化
+            1)样式相关，首选能否在标签上使用指令，次之使用method
+            2)使用template标签：使用div可能改变dom结构，使用template不会改变dom结构
+            3)表单数据双向绑定：表单中使用v-model实现数据的双向绑定，而不是:value=""
+            4)计算属性：
+                get方法：方法体中的全局变量改变时 调用
+                set方法：计算属性的值改变时调用，set方法只有一个参数（改变后的值）
+            5）js的数组操作，实用
+                尾加1个项：this.items.push(item)
+                移除第一个：this.items.splice(0, 1)
+                数组过滤函数：this.items.filter((item) => {    })
+            6.自定义指令：全局指令、局部指令
+        c.此项目实战中很多ES6的语法，值得学习掌握！
+        d.VSCode快捷键：
+            Ctrl + Enter：新建下一行，光标移动到下一行
+            Alt + Up：当前行向上移动
+            Shift + Alt + Up： 向上复制当前行
 
 
