@@ -1,5 +1,19 @@
 (function (Vue) {
 
+	const STORAGE_KEY = 'items-todomvc'
+
+	// 定义一个对象
+	const itemStorage = {
+		attribute1: '测试属性1',
+		attribute2: '测试属性2',
+		fetch: function() {
+			return JSON.parse( localStorage.getItem(STORAGE_KEY) || '[]')
+		},
+		save: function(items) {
+			localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
+		}
+	}
+
 	// items属性不可改变， ES6语法
 	const items = [
 		{id: 1, content: 'vueJs', completed: false},
@@ -21,9 +35,29 @@
 	var app = new Vue({
 		el: '#todoapp',
 		data: {
-			items,	// ES6语法
+			// items,	// ES6语法
+			items: itemStorage.fetch(),	// ES6语法
 			currentItem: null,
 			filterStatus: 'all'
+		},
+
+		watch: {
+
+			// 当对象中的某个值被改变后，监听器是监听不到的
+			// items(newValue, oldValue) {
+			// 	console.log('new', newValue)
+			// 	console.log('old', oldValue)
+			// }
+
+			// 深度监听，当对象中的属性发生变化后，使用deep:true选择可以实时监听
+			items: {
+				deep: true,
+				handler:function(newItems, oldItems) {
+					itemStorage.save(newItems)
+					console.log('输出自定义对象的属性值：', itemStorage.attribute1)
+				}
+			}
+
 		},
 		// 定义局部指令
 		directives: {

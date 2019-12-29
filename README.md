@@ -40,6 +40,11 @@
                 移除第一个：this.items.splice(0, 1)
                 数组过滤函数：this.items.filter((item) => {    })
             6.自定义指令：全局指令、局部指令
+            7.路由切换：window.location.hash获取路由尾部的hash值
+            8.js使用const定义对象(属性 + 方法)：const itemStorage = { attribute1: '属性1', attribute2: '属性2', fetch: function() {}, save: function(param) {}
+            9.使用localStorage本地存储
+                set值：localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
+                get值：JSON.parse( localStorage.getItem(STORAGE_KEY) || '[]')
         c.此项目实战中很多ES6的语法，值得学习掌握！
         d.VSCode快捷键：
             Ctrl + Enter：新建下一行，光标移动到下一行
