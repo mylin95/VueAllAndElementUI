@@ -16,17 +16,6 @@
 
   <body>
     <div id="app">
-    <!--头部导航区域-->
-      <app-nav></app-nav>
-    <!--核心区域:分左右两边-->
-      <div class="container-fluid">
-        <div class="row">
-          <!--左边菜单栏区域-->
-          <app-leaf></app-leaf>
-          <!--右边主页面区域: 分上下两个区域-->
-          <app-home></app-home>
-        </div>
-      </div>
     </div>
 
     <script src="../node_modules/vue/dist/vue.js"></script>
@@ -35,18 +24,7 @@
     <script src="./components/home/Dashboard.js"></script>
     <script src="./components/home/HomeList.js"></script>
     <script src="./components/home/AppHome.js"></script>
-    <script>
-
-      // 1、AppNav组件可以定义在此处，
-      // 亦可定义在外部js文件中
-      new Vue({
-        el: '#app',
-        components: {
-          AppNav,
-          AppLeaf,
-          AppHome
-        }
-      })
-    </script>
+    <script src="./App.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
