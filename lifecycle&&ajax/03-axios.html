@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>axios</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ responseData }}</h1>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    responseData: []
+                }
+            },
+            created() {
+                axios.get('http://127.0.0.1:5050/lifecycle&&ajax/db.json').then( (response) => {
+                        // handle success
+                        console.log(response);
+                        console.log(response.data);
+                        this.responseData = response.data;
+                    })
+                    .catch( (error) => {
+                        // handle error
+                        console.log(error);
+                    })
+                    .finally( () => {
+                        // always executed
+                    });
+            },
+        })
+    </script>
+</body>
+
+</html>
