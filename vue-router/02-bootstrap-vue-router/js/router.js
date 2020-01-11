@@ -1,9 +1,10 @@
 ;(function() {
     window.router = new VueRouter({
+        linkActiveClass: 'active',
         routes: [
             {
                 path: '/',
-                component: AppHome
+                component: AppHome,
             },
             {
                 path: '/news',
