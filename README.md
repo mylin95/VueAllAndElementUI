@@ -84,6 +84,10 @@
                 b.<router-link to="/foo">Go Foo</router-link>
             3.设置路由视图：
                 <router-view></router-view>
+            4.设置router-link的props属性 && 路由激活的样式
+                激活样式：全局linkActiveClass、局部active-class
+            5.嵌套路由的使用，配置路径的children属性
+
         
 
             
