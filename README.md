@@ -70,6 +70,25 @@
         箭头函数体中的this，指的是它的父类
             如果箭头函数存在Vue实例中，this指的就是Vue实例，
             如果使用function() {}这种方式，那么其中的this指window实例
+    2020年1月11日19:27:58
+        vue生命周期：
+            三大类钩子函数
+        vue结合ajax发送异步请求：
+            1.vue1.x：使用vue-resource
+            2.vue2.x：使用axios
+        vue的路由管理：
+            1.Js中定义路由管理：
+                a.定义路由的方式有两种，类似组件的定义方式：全局定义、局部定义（详情见01-vue-router-demo.html)
+            2.设置路由链接：
+                a.<a href="#/foo">Go Foo</a>
+                b.<router-link to="/foo">Go Foo</router-link>
+            3.设置路由视图：
+                <router-view></router-view>
+        
+
+            
+
+
 
 
 
