@@ -13,9 +13,11 @@
                 <h1 slot="dashboard" class="page-header">{{title}}</h1>
             </app-home>-->
             <!-- 改成使用vue-router管理路由的方式 -->
-            <router-view>
-                <h1 slot="dashboard" class="page-header">{{title}}</h1>
-            </router-view>
+            <keep-alive>
+                <router-view>
+                    <h1 slot="dashboard" class="page-header">{{title}}</h1>
+                </router-view>
+            </keep-alive>
             </div>
         </div>
     </div>`

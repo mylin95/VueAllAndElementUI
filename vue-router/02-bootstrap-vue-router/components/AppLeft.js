@@ -13,7 +13,7 @@
         </router-link>
 
         <router-link to="/news" tag="li">
-          <a>新闻</a>
+          <a>新闻管理</a>
         </router-link>
 
         <router-link to="/about" tag="li">
