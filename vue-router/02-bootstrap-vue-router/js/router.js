@@ -14,7 +14,14 @@
                     {
                         // 类似绝对路径
                         path: '/news/sport',
-                        component: Sport
+                        component: Sport,
+                        children: [
+                            {
+                                // 路由组件传参
+                                path: '/news/sport/detail/:id',
+                                component: SportDetail
+                            }
+                        ]
                     },
                     {
                         // 类似相对路径

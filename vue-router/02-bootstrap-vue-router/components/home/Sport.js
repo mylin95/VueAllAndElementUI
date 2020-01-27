@@ -3,20 +3,36 @@
     <!--体育栏目-->
     <div>
         <ul>
-            <li>
-                <a href="#">世界杯开赛啦</a>
-            </li>
-            <li>
-                <a href="#">NBA开赛倒计时</a>
+            <li v-for="sport in sportArr" :key="sport.id" >
+                <router-link :to="'/news/sport/detail/' + sport.id">{{sport.title}}</router-link>
             </li>
         </ul>
-        <!--详情-->
-        <div class="jumbotron">
-            <h2>世界杯开赛啦</h2>
-            <p>世界杯于明晚8点举行开幕式.....</p>
-        </div>
+        <!--详情 渲染出SportDetail组件-->
+        <router-view></router-view>
     </div>  `
     window.Sport = {
-        template
+        template,
+        data() {
+            return {
+                sportArr: []
+            }
+        },
+
+        created() {
+            this.getSportArr()
+        },
+        methods: {
+            getSportArr() {
+                axios.get('http://127.0.0.1:5050/vue-router/02-bootstrap-vue-router/db/sport.json').then( (response) => {
+                    console.log(response.data);
+                    this.sportArr = response.data;
+                })
+                .catch( (error) => {
+                    console.log(error);
+                })
+                .finally( () => {
+                })
+            }
+        }
     }
 })()
