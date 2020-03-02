@@ -27,6 +27,7 @@
                 第{{index+1}}个属性为：{{key}} =  {{value}}
             </li>
         </ul>
+        <span @click="clickMe">点我</span>
     </div>
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script>
@@ -41,9 +42,79 @@
                 person: {
                     name: '小梦',
                     age: 18
+                },
+                weekOption: [
+                {
+                value: '1',
+                label: '星期一'
+                },{
+                value: '2',
+                label: '星期二'
+                },{
+                value: '3',
+                label: '星期三'
+                },{
+                value: '4',
+                label: '星期四'
+                },{
+                value: '5',
+                label: '星期五'
+                },{
+                value: '6',
+                label: '星期六'
+                },{
+                value: '7',
+                label: '星期日'
+                }],
+            },
+            methods: {
+                clickMe() {
+                    // var self = this;
+                    // this.weekOption.forEach((element, index) => {
+                    //     console.log("1", element)
+                    //     console.log("2", index)
+                    // });
+                    // for (const week in this.weekOption) {
+                    //     console.log(week)
+                    // }
+                    
                 }
-            }
+            },
         })
+
+        // const weekOption = [
+        //         {
+        //         value: '1',
+        //         label: '星期一'
+        //         },{
+        //         value: '2',
+        //         label: '星期二'
+        //         },{
+        //         value: '3',
+        //         label: '星期三'
+        //         },{
+        //         value: '4',
+        //         label: '星期四'
+        //         },{
+        //         value: '5',
+        //         label: '星期五'
+        //         },{
+        //         value: '6',
+        //         label: '星期六'
+        //         },{
+        //         value: '7',
+        //         label: '星期日'
+        //         }];
+        // console.log(weekOption.filter(item => item.value != null))
+        
+        // const choosedDays = [1, 2, 3]
+        // console.log('日期', choosedDays.toString())
+        // var self = this
+        // this.weekOption.forEach((element, self) => {
+        //       console.log("1", element)
+        //       console.log("2", self)
+        //     });
+
     </script>
 </body>
 </html>

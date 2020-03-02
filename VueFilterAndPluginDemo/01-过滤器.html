@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue的过滤器</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <h3>测试过滤器单个参数</h3>
+        <!-- 原始属性名 | 过滤器 -->
+        <p>{{ content | contentFilter }}</p>
+        <input type="text" :value="content | contentFilter " />
+        
+
+        <h3>测试过滤器多个参数</h3>
+        <!-- 参数1 | 过滤器(参数2, 参数3) -->
+        <p>{{ javaScope | addFilter(vueScope, pythonScope)}}</p>
+        <input type="text" :value="javaScope | addFilter(vueScope, pythonScope) ">
+
+        <!-- 目前vue2版本只支持{{过滤器}}、v-bind方式，不支持v-model -->
+        <!-- <input type="text" v-model="content | contentFilter " /> -->
+        
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <script>
+
+        // Vue.filter('contentFilter', function (value) {
+        //     if (!value) {
+        //         return ''
+        //     }
+        //     return value.toString().toUpperCase().replace('TMD', '***').replace('SB', '**')
+        // })
+
+        new Vue({
+            el: '#app',
+            data: {
+                content: '梅琳达，谢谢的中文是tmd',
+                javaScope: 90,
+                vueScope: 91,
+                pythonScope: 92
+            },
+            filters: {
+                contentFilter(value) {
+                    if (!value) {
+                        return ''
+                    }
+                    return value.toString().toUpperCase().replace('TMD', '***').replace('SB', '**')
+                },
+                addFilter(num1, num2, num3) {
+                    return num1 + num2 + num3
+                }
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>
