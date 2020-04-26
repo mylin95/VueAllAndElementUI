@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>momentDocument</title>
+</head>
+<body>
+
+    <script src="../node_modules/moment/moment.js"></script>
+    <script>
+
+        // npm安装moment插件：npm install moment
+        console.log("moment", moment().format()) //2020-04-26T10:27:53+08:00
+        console.log("日期字符串转moment对象->时间戳", moment("2020-4-26 10:30:56", "YYYY-MM-DD HH:mm:ss").unix())  // 日期字符串，转moment类
+        console.log("时间戳转moment对象->格式化", moment.unix(1318781876).format("YYYY-MM-DD HH:mm:ss")) // 时间戳，转日期字符串
+
+        console.log("date转moment", moment(new Date(2011, 9, 16)).format("YYYY-MM-DD HH:mm:ss"))
+
+        moment([2010, 1, 14, 15, 25, 50, 125]);
+
+        // 时间计算（减）
+        console.log("subtract-days", moment().subtract(7, 'days').format("YYYY-MM-DD HH:mm:ss"));
+        console.log("subtract-hours", moment().subtract(7, 'hours').format("YYYY-MM-DD HH:mm:ss"));
+        console.log("subtract-minutes", moment().subtract(7, 'minutes').format("YYYY-MM-DD HH:mm:ss"));
+        console.log("subtract-seconds", moment().subtract(7, 'seconds').format("YYYY-MM-DD HH:mm:ss"));
+        // 时间计算（增）
+        console.log("add-days", moment().add(7, 'days').format("YYYY-MM-DD HH:mm:ss"));
+        console.log("add-days-months", moment().add(7, 'days').add(1, 'months').format("YYYY-MM-DD HH:mm:ss"));
+    </script>
+</body>
+</html>

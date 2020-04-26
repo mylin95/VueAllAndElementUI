@@ -4,3 +4,4 @@ package-lock.json
 todomvc-app-template.zip
 todomvc-app/node_modules/*
 .idea/*
+.npmrc
