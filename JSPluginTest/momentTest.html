@@ -12,6 +12,7 @@
     <script>
 
         // npm安装moment插件：npm install moment
+        // 官网：http://momentjs.cn/
         console.log("moment", moment().format()) //2020-04-26T10:27:53+08:00
         console.log("日期字符串转moment对象->时间戳", moment("2020-4-26 10:30:56", "YYYY-MM-DD HH:mm:ss").unix())  // 日期字符串，转moment类
         console.log("时间戳转moment对象->格式化", moment.unix(1318781876).format("YYYY-MM-DD HH:mm:ss")) // 时间戳，转日期字符串

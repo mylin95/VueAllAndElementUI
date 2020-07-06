@@ -50,7 +50,7 @@
             Ctrl + Enter：新建下一行，光标移动到下一行
             Alt + Up：当前行向上移动
             Shift + Alt + Up： 向上复制当前行
-
+    
     2020年1月1日11:23:31
     10.Vue的过滤器和插件实战
         a.Vue过滤器：
@@ -62,7 +62,7 @@
     2020年1月9日09:39:27
         组件间的消息传递：
             1.父=>子: 通过props传递数据（对象、函数等） 
-            2.子=>父: 通过自定义事件绑定￥emit
+            2.子=>父: 通过自定义事件绑定$emit
             3.父组件通过插槽slot方式，向子组件传递 视图和数据
             4.兄弟组件、父子组件间传递数据的插件：PubSub
                 消息订阅：绑定监听事件处理
@@ -89,11 +89,14 @@
             5.嵌套路由的使用，配置路径的children属性
 
 
-        
+**Vue中操作原生Dom节点：**
 
-            
-
-
-
-
-version111
+  ```html
+<button @click="warn('hello', $event)">Warn</button>
+methods: {
+	warn: function (name, event) {
+        //如果说函数有多个参数，而双需要使用原生事件，则需要使用 $event 作为 参数传入
+        alert(name + ',' + event.target.tagName)
+    },
+}
+  ```
